@@ -1,0 +1,24 @@
+http://stackoverflow.com/questions/28185067/vim-go-to-next-search-result-across-multiple-files
+Vim allows you to redirect cscope's output to the quickfix window with the 'cscopequickfix' option. Below is the suggested value in :help 'cscopequickfix':
+
+set cscopequickfix=s-,c-,d-,i-,t-,e-
+From there, you can search for apple with:
+
+:cs f s apple
+view the list of matches with:
+
+:cw[indow]
+jump to the next match with:
+
+:cn[ext]
+jump to the previous match with:
+
+:cp[revious]
+and, of course, use the mouse or the keyboard to select entries in the quickfix window.
+
+Bonus: add this to your vimrc to skip the :cwindow step:
+
+augroup qf
+    autocmd!
+    autocmd QuickFixCmdPost * cwindow
+augroup END
