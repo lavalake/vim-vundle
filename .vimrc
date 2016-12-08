@@ -23,7 +23,6 @@ Plugin 'tpope/vim-surround'
 Plugin 'Raimondi/delimitMate'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'ciaranm/detectindent'
-Plugin 'Rip-Rip/clang_complete'
 Plugin 'majutsushi/tagbar'
 Plugin 'msanders/snipmate.vim'
 Plugin 'bling/vim-airline'
@@ -115,6 +114,6 @@ augroup qf
 	autocmd QuickFixCmdPost * cwindow
 augroup END
 nmap wm :WMToggle<CR>
-#let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
-#let g:ycm_key_list_select_completion=[]
-#let g:ycm_key_list_previous_completion=[]
+let g:ycm_global_ycm_extra_conf = "/home/user/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"
+let g:ycm_key_list_select_completion=[]
+let g:ycm_key_list_previous_completion=[]
