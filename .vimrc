@@ -17,7 +17,6 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
-Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'tpope/vim-surround'
 Plugin 'Raimondi/delimitMate'
@@ -32,6 +31,7 @@ Plugin 'justmao945/vim-clang'
 Plugin 'rdnetto/YCM-Generator'
 Plugin 'steffanc/cscopemaps.vim'
 Plugin 'vim-scripts/cscope.vim'
+Plugin 'altercation/solarized'
 
 
 " plugin from http://vim-scripts.org/vim/scripts.html
@@ -66,11 +66,6 @@ nmap <F8> :TagbarToggle
 :color jellybeans
 :NERDTree
 :Tagbar
-let g:jellybeans_overrides = {
-			\    'Todo': { 'guifg': '303030', 'guibg': 'f0f000',
-			\              'ctermfg': 'Black', 'ctermbg': 'Yellow',
-			\              'attr': 'bold' },
-			\}
 if has("cscope")
     set csprg=/usr/bin/cscope
     set csto=0
@@ -114,6 +109,20 @@ augroup qf
 	autocmd QuickFixCmdPost * cwindow
 augroup END
 nmap wm :WMToggle<CR>
-let g:ycm_global_ycm_extra_conf = "/home/user/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"
+syntax enable
+set background=dark
+let g:solarized_termcolors=16
+set rtp+=~/.vim/bundle/vim-colors-solarized
+colorscheme solarized
+let g:jellybeans_overrides = {
+			\    'Todo': { 'guifg': '303030', 'guibg': 'f0f000',
+			\              'ctermfg': 'Black', 'ctermbg': 'Yellow',
+			\              'attr': 'bold' },
+			\}
+let g:ycm_show_diagnostics_ui = 1
+let g:ycm_enable_diagnostics_highlighting = 1
+let g:ycm_always_populate_location_list = 1
+nnoremap <F5> :YcmDiags
+#let g:ycm_global_ycm_extra_conf = "/home/user/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"
 let g:ycm_key_list_select_completion=[]
 let g:ycm_key_list_previous_completion=[]
