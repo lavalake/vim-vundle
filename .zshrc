@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
   export ZSH=/home/ts140/.oh-my-zsh
@@ -8,8 +8,10 @@
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 #ZSH_THEME="robbyrussell"
-#ZSH_THEME="agnoster"
-ZSH_THEME="blinks"
+export ZSH_THEME="agnoster"
+#ZSH_THEME="blinks"
+
+[[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && . ~/.autojump/etc/profile.d/autojump.sh
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -53,7 +55,7 @@ ZSH_THEME="blinks"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git autojump copyfile copydir dirpersist extract history pass)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -105,9 +107,34 @@ tmux_init()
 	tmux  new-session -s "0" -d -n "local" #start a seesion
 	tmux  new-window -n "other"	#start a window
 	tmux  split-window -h	#split horizental
-	tmux  split-window -v "top" 	#start a verti and ruin top
 	tmux  attach-session -d	# start tmux with 256 color and attach to session
 }
 if which tmux 2>&1 >/dev/null; then
 	test -z "$TMUX" && (tmux -2 attach || tmux_init)
 fi
+# Load various lib files 
+antigen bundle robbyrussell/oh-my-zsh lib/ 
+#
+# Antigen Theme
+#
+antigen theme jdavis/zsh-files themes/jdavis
+#antigen theme robbyrussell
+antigen bundle git 
+antigen bundle tmuxinator 
+antigen bundle zsh-users/zsh-syntax-highlighting 
+antigen bundle rupa/z
+# For SSH, starting ssh-agent is annoying 
+antigen bundle ssh-agent
+if [[ $CURRENT_OS == 'OS X' ]]; then 
+	antigen bundle brew 
+	antigen bundle brew-cask 
+	antigen bundle gem 
+	antigen bundle osx
+elif [[ $CURRENT_OS == 'Linux' ]]; then 
+	# None so far... 
+	if [[ $DISTRO == 'CentOS' ]]; then 
+		antigen bundle centos 
+	fi
+fi
+antigen bundle jdavis/zsh-files
+#antigen bundle git@github.com:jdavis/secret.git

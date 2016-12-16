@@ -113,12 +113,13 @@ syntax enable
 set background=dark
 let g:solarized_termcolors=16
 set rtp+=~/.vim/bundle/vim-colors-solarized
-colorscheme solarized
-let g:jellybeans_overrides = {
-			\    'Todo': { 'guifg': '303030', 'guibg': 'f0f000',
-			\              'ctermfg': 'Black', 'ctermbg': 'Yellow',
-			\              'attr': 'bold' },
-			\}
+#colorscheme solarized
+colorscheme desert 
+"let g:jellybeans_overrides = {
+"			\    'Todo': { 'guifg': '303030', 'guibg': 'f0f000',
+"			\              'ctermfg': 'Black', 'ctermbg': 'Yellow',
+"			\              'attr': 'bold' },
+"			\}
 let g:ycm_show_diagnostics_ui = 1
 let g:ycm_enable_diagnostics_highlighting = 1
 let g:ycm_always_populate_location_list = 1
@@ -126,3 +127,4 @@ nnoremap <F5> :YcmDiags
 #let g:ycm_global_ycm_extra_conf = "/home/user/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"
 let g:ycm_key_list_select_completion=[]
 let g:ycm_key_list_previous_completion=[]
+set visualbell
