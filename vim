@@ -39,3 +39,5 @@
 8. repeat command
     The "." command repeats the last change made in normal mode. For example, if you press dw to delete a word, you can then press . to delete another word (. is dot, aka period or full stop).
     The "@:" command repeats the last command-line change (a command invoked with ":", for example  :s/old/new/).
+9. register
+    Every register is accessed using a double quote before its name. For example, we can access the content that is in the register r with "r
