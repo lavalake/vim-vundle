@@ -41,3 +41,5 @@
     The "@:" command repeats the last command-line change (a command invoked with ":", for example  :s/old/new/).
 9. register
     Every register is accessed using a double quote before its name. For example, we can access the content that is in the register r with "r
+10. highlight search
+    set hlsearch
