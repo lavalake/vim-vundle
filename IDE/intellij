@@ -1,1 +1,12 @@
 https://medium.com/@danidiaz/configuring-ideavimrc-de16a4da0715
+
+https://sandstorm.de/de/blog/post/better-git-workflow-intellij.html
+Nifty tooling
+The first cool thing you'll notice after enabling version control for a project ist the git information on the bottom right 
+corner (Something like Git:master). It tells you which branch you're on and if you click it a small menu pops up with a list
+of your local and remote branches. You can easily switch between branches, checkout new branches, compare them, merge them, 
+delete them and so on. Nothing special so far.
+
+One handy feature (that is hard to do with a CLI command) is the Annotate view: it displays -per line-  the date and author of 
+the according commit that the line last changed. How cool is that? Just right-click the line-number to see who you can ask when
+you think "WTF is this line doing here?" ;-)
